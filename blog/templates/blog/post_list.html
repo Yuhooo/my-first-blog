@@ -1,20 +1,14 @@
-<html>
-	<head>
-		<title>Yuhooo's Blog</title>
-	</head>
-	<body>
-		<div>
-			<h1><a href="">Yuhooo Blog</a></h1>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	{% for post in posts %}
+		<div class="post">
+			<div class="date">
+				<p>published: {{ post.published_date }}</p>
+			</div>
+			<h2><a href="">{{ post.title }}</a></h2>
+			<p>{{ post.text|linebreaks }}</p>
 		</div>
-		<div>
-			<p>published: 16.04.2016, 15:15</p>
-			<h2><a href="">My first post</a></h2>
-			<p>This is my first post!</p>
-		</div>
-		<div>
-			<p>published: 16.04.2016, 15:16</p>
-			<h2><a href="">My second post</a></h2>
-			<p>This is my second post!</p>
-		</div>
-	</body>
-</html>
+	{% endfor %}
+	
+{% endblock content %}
